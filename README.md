@@ -1,2 +1,2 @@
-Exampe proyect for the React course.
+Exampe project for the React course.
 It is a clothes shopping website.
