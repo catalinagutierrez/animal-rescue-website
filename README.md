@@ -1,2 +1,5 @@
-Exampe project for the React course.
-It is a clothes shopping website.
+# React Udemy Course Master Project
+A clothes shopping website using the following tools:
+- React
+- Redux (Logger)
+- Firebase
