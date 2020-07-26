@@ -1,5 +1,7 @@
 # ReactJS Udemy Course Master Project: Crwn Clothing
-A fashion ecommerce website. It includes sign in with Google and user management, and payment validation. It makes use of the following tools:
+A fashion ecommerce website that can be accessed [here](https://cat-crwn-clothing.herokuapp.com/). It makes use of the following tools:
 - React
-- Redux (Logger)
+- Redux
+- SASS
 - Firebase
+- Stripe
