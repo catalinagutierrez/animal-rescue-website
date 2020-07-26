@@ -17,7 +17,7 @@ import {
     RemoveButtonContainer,
 } from './checkout-item.styles';
 
-const CheckOutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
+const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
     const { name, imageUrl, price, quantity } = cartItem;
     return (
         <CheckoutItemContainer>
@@ -64,4 +64,4 @@ const mapDispatchToProps = (dispatch) => ({
     removeItem: (item) => dispatch(removeItem(item)),
 });
 
-export default connect(null, mapDispatchToProps)(CheckOutItem);
+export default connect(null, mapDispatchToProps)(CheckoutItem);
