@@ -28,10 +28,10 @@ export const CheckoutHeaderContainer = styled.div`
 
 export const HeaderBlockContainer = styled.div`
     text-transform: capitalize;
-    width: 23%;
+    width: 30%;
 
     &:last-child {
-        width: 8%;
+        width: 10%;
     }
 `;
 

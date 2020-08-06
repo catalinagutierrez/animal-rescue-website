@@ -11,6 +11,7 @@ export const MenuItemContainer = styled.div`
     border: 1px solid black;
     margin: 0 7.5px 15px;
     overflow: hidden;
+    border-radius: 5px;
 
     &:hover {
         cursor: pointer;
@@ -42,6 +43,7 @@ export const BackgroundImageContainer = styled.div`
     background-size: cover;
     background-position: center;
     background-image: ${({ imageUrl }) => `url(${imageUrl})`};
+    border-radius: 5px;
 `;
 
 export const ContentContainer = styled.div`
@@ -55,6 +57,7 @@ export const ContentContainer = styled.div`
     background-color: white;
     opacity: 0.7;
     position: absolute;
+    border-radius: 5px;
 `;
 
 export const ContentTitle = styled.span`
@@ -62,9 +65,4 @@ export const ContentTitle = styled.span`
     margin-bottom: 6px;
     font-size: 22px;
     color: #4a4a4a;
-`;
-
-export const ContentSubtitle = styled.span`
-    font-weight: lighter;
-    font-size: 16px;
 `;

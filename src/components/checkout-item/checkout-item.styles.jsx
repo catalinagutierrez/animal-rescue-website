@@ -11,7 +11,7 @@ export const CheckoutItemContainer = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-    width: 23%;
+    width: 30%;
     padding-right: 15px;
     img {
         width: 100%;
@@ -20,7 +20,7 @@ export const ImageContainer = styled.div`
 `;
 
 export const TextContainer = styled.span`
-    width: 23%;
+    width: 30%;
 `;
 
 export const QuantityContainer = styled(TextContainer)`
