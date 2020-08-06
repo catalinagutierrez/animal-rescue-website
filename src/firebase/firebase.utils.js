@@ -3,19 +3,19 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const config = {
-    apiKey: 'AIzaSyC2U3rGxL_LRdFYSvmnxZfdOYaLvk_Wnfs',
-    authDomain: 'crwn-db-3fcf9.firebaseapp.com',
-    databaseURL: 'https://crwn-db-3fcf9.firebaseio.com',
-    projectId: 'crwn-db-3fcf9',
-    storageBucket: 'crwn-db-3fcf9.appspot.com',
-    messagingSenderId: '185730970297',
-    appId: '1:185730970297:web:edacb43a9bba38ff47e168',
-    measurementId: 'G-VJ57ZKK0BY',
+    apiKey: 'AIzaSyB3dvEGnwzURwtwiF07700dbw9ONSIBtgY',
+    authDomain: 'cat-animal-rescue-db.firebaseapp.com',
+    databaseURL: 'https://cat-animal-rescue-db.firebaseio.com',
+    projectId: 'cat-animal-rescue-db',
+    storageBucket: 'cat-animal-rescue-db.appspot.com',
+    messagingSenderId: '379330288160',
+    appId: '1:379330288160:web:b28938c6703fbe65cd3a45',
+    measurementId: 'G-KCPWF17ZKQ',
 };
 
 firebase.initializeApp(config);
 
-//we create the firestore data from our local shop data
+//we create the firestore data from our local data
 export const addCollectionAndItems = async (collectionKey, objectsToAdd) => {
     const collectionRef = firestore.collection(collectionKey);
 

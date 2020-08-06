@@ -14,7 +14,7 @@ const StripeCheckoutButton = ({ price }) => {
     return (
         <StripeCheckout
             label='Pay Now'
-            name='CRWN Clothing Ltd.'
+            name='CAT Animal Rescue Ltd.'
             billingAddress
             shippingAddress
             image='http://svgshare.com/i/CUz.svg'

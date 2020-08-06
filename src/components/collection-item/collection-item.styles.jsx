@@ -5,9 +5,10 @@ export const CollectionItemContainer = styled.div`
     width: 22vw;
     display: flex;
     flex-direction: column;
-    height: 350px;
+    height: 32vw;
     align-items: center;
     position: relative;
+    padding: 5px;
     &:hover {
         .image {
             opacity: 0.8;
@@ -34,13 +35,14 @@ export const AddButton = styled(CustomButton)`
     width: 80%;
     opacity: 0.7;
     position: absolute;
-    top: 255px;
+    top: 24vw;
     display: none;
     @media screen and (max-width: 800px) {
         display: block;
         opacity: 0.9;
         min-width: unset;
         padding: 0 10px;
+        top: 20vw;
     }
 `;
 
