@@ -1,4 +1,4 @@
-import ShopActionTypes from './shop.types';
+import DiscoverActionTypes from './discover.types';
 
 import {
     firestore,
@@ -6,16 +6,16 @@ import {
 } from '../../firebase/firebase.utils';
 
 export const fetchCollectionsStart = () => ({
-    type: ShopActionTypes.FETCH_COLLECTIONS_START,
+    type: DiscoverActionTypes.FETCH_COLLECTIONS_START,
 });
 
 export const fetchCollectionsSuccess = (collectionsMap) => ({
-    type: ShopActionTypes.FETCH_COLLECTIONS_SUCCESS,
+    type: DiscoverActionTypes.FETCH_COLLECTIONS_SUCCESS,
     payload: collectionsMap,
 });
 
 export const fetchCollectionsFailure = (errorMessage) => ({
-    type: ShopActionTypes.FETCH_COLLECTIONS_FAILURE,
+    type: DiscoverActionTypes.FETCH_COLLECTIONS_FAILURE,
     payload: errorMessage,
 });
 

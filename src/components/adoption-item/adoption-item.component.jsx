@@ -8,17 +8,17 @@ import {
 } from '../../redux/cart/cart.actions';
 
 import {
-    CheckoutItemContainer,
+    AdoptionItemContainer,
     ImageContainer,
     TextContainer,
     QuantityContainer,
     RemoveButtonContainer,
-} from './checkout-item.styles';
+} from './adoption-item.styles';
 
-const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
+const AdoptionItem = ({ cartItem, clearItem, addItem, removeItem }) => {
     const { name, imageUrl, quantity } = cartItem;
     return (
-        <CheckoutItemContainer>
+        <AdoptionItemContainer>
             <ImageContainer>
                 <img src={imageUrl} alt='item' />
             </ImageContainer>
@@ -31,7 +31,7 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
             <RemoveButtonContainer onClick={() => clearItem(cartItem)}>
                 &#10005;
             </RemoveButtonContainer>
-        </CheckoutItemContainer>
+        </AdoptionItemContainer>
     );
 };
 
@@ -41,4 +41,4 @@ const mapDispatchToProps = (dispatch) => ({
     removeItem: (item) => dispatch(removeItem(item)),
 });
 
-export default connect(null, mapDispatchToProps)(CheckoutItem);
+export default connect(null, mapDispatchToProps)(AdoptionItem);

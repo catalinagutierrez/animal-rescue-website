@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CheckoutPageContainer = styled.div`
+export const AdoptionPageContainer = styled.div`
     width: 55%;
     min-height: 90vh;
     display: flex;
@@ -18,7 +18,7 @@ export const CheckoutPageContainer = styled.div`
     }
 `;
 
-export const CheckoutHeaderContainer = styled.div`
+export const AdoptionHeaderContainer = styled.div`
     width: 100%;
     height: 40px;
     display: flex;

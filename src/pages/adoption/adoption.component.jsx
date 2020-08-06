@@ -6,21 +6,21 @@ import {
     selectCartItems,
     selectCartTotal,
 } from '../../redux/cart/cart.selectors';
-import CheckoutItem from '../../components/checkout-item/checkout-item.component';
+import AdoptionItem from '../../components/adoption-item/adoption-item.component';
 
 import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component';
 
 import {
-    CheckoutPageContainer,
-    CheckoutHeaderContainer,
+    AdoptionPageContainer,
+    AdoptionHeaderContainer,
     HeaderBlockContainer,
     TotalContainer,
     WarningContainer,
-} from './checkout.styles';
+} from './adoption.styles';
 
-const CheckoutPage = ({ cartItems, total }) => (
-    <CheckoutPageContainer>
-        <CheckoutHeaderContainer>
+const AdoptionPage = ({ cartItems, total }) => (
+    <AdoptionPageContainer>
+        <AdoptionHeaderContainer>
             <HeaderBlockContainer>
                 <span>Product</span>
             </HeaderBlockContainer>
@@ -33,9 +33,9 @@ const CheckoutPage = ({ cartItems, total }) => (
             <HeaderBlockContainer>
                 <span>Remove</span>
             </HeaderBlockContainer>
-        </CheckoutHeaderContainer>
+        </AdoptionHeaderContainer>
         {cartItems.map((cartItem) => (
-            <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+            <AdoptionItem key={cartItem.id} cartItem={cartItem} />
         ))}
         <TotalContainer>TOTAL: ${total}</TotalContainer>
         <WarningContainer>
@@ -44,7 +44,7 @@ const CheckoutPage = ({ cartItems, total }) => (
             4242 4242 4242 4242 - Exp: 01/20 - CVV: 123
         </WarningContainer>
         <StripeCheckoutButton price={total} />
-    </CheckoutPageContainer>
+    </AdoptionPageContainer>
 );
 
 const mapStateToProps = createStructuredSelector({
@@ -52,4 +52,4 @@ const mapStateToProps = createStructuredSelector({
     total: selectCartTotal,
 });
 
-export default connect(mapStateToProps)(CheckoutPage);
+export default connect(mapStateToProps)(AdoptionPage);

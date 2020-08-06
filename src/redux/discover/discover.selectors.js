@@ -1,10 +1,10 @@
 import { createSelector } from 'reselect';
 
-const selectShop = (state) => state.shop;
+const selectDiscover = (state) => state.discover;
 
 export const selectCollections = createSelector(
-    [selectShop],
-    (shop) => shop.collections
+    [selectDiscover],
+    (discover) => discover.collections
 );
 
 export const selectCollectionsForPreview = createSelector(
@@ -21,11 +21,11 @@ export const selectCollection = (collectionUrlParam) =>
     );
 
 export const selectIsCollectionFetching = createSelector(
-    [selectShop],
-    (shop) => shop.isFetching
+    [selectDiscover],
+    (discover) => discover.isFetching
 );
 
 export const selectIsCollectionsLoaded = createSelector(
-    [selectShop],
-    (shop) => !!shop.collections
+    [selectDiscover],
+    (discover) => !!discover.collections
 );
