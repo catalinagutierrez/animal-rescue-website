@@ -7,18 +7,15 @@ import {
     selectCartTotal,
 } from '../../redux/cart/cart.selectors';
 import AdoptionItem from '../../components/adoption-item/adoption-item.component';
-
-import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component';
+import CustomButton from '../../components/custom-button/custom-button.component';
 
 import {
     AdoptionPageContainer,
     AdoptionHeaderContainer,
     HeaderBlockContainer,
-    TotalContainer,
-    WarningContainer,
 } from './adoption.styles';
 
-const AdoptionPage = ({ cartItems, total }) => (
+const AdoptionPage = ({ cartItems }) => (
     <AdoptionPageContainer>
         <AdoptionHeaderContainer>
             <HeaderBlockContainer>
@@ -37,13 +34,10 @@ const AdoptionPage = ({ cartItems, total }) => (
         {cartItems.map((cartItem) => (
             <AdoptionItem key={cartItem.id} cartItem={cartItem} />
         ))}
-        <TotalContainer>TOTAL: ${total}</TotalContainer>
-        <WarningContainer>
-            *Please use the following test credit card for payments*
-            <br />
-            4242 4242 4242 4242 - Exp: 01/20 - CVV: 123
-        </WarningContainer>
-        <StripeCheckoutButton price={total} />
+        <CustomButton type='submit' value='Submit Form'>
+            {' '}
+            Apply{' '}
+        </CustomButton>
     </AdoptionPageContainer>
 );
 
