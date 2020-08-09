@@ -13,4 +13,8 @@ export const DonationFormContainer = styled.div`
     button {
         opacity: 1;
     }
+
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+    }
 `;

@@ -62,14 +62,15 @@ export const CollectionFooterContainer = styled.div`
     display: flex;
     justify-content: space-between;
     font-size: 18px;
+    padding: 0 10px;
 `;
 
 export const NameContainer = styled.span`
-    width: 90%;
+    width: 30%;
     margin-bottom: 15px;
 `;
 
-export const PriceContainer = styled.span`
-    width: 10%;
+export const AgeContainer = styled.span`
+    width: 70%;
     text-align: right;
 `;

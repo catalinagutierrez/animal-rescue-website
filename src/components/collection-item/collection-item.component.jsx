@@ -8,18 +8,18 @@ import {
     AddButton,
     BackgroundImage,
     NameContainer,
-    PriceContainer,
+    AgeContainer,
 } from './collection-item.styles';
 
 const CollectionItem = ({ item, addItem }) => {
-    const { name, price, imageUrl } = item;
+    const { name, imageUrl } = item;
 
     return (
         <CollectionItemContainer>
             <BackgroundImage className='image' imageUrl={imageUrl} />
             <CollectionFooterContainer>
                 <NameContainer>{name}</NameContainer>
-                <PriceContainer>{price}</PriceContainer>
+                <AgeContainer>4 months</AgeContainer>
             </CollectionFooterContainer>
             <AddButton onClick={() => addItem(item)} inverted>
                 Adopt me!

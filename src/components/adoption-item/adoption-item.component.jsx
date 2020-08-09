@@ -1,33 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import {
-    clearItemFromCart,
-    addItem,
-    removeItem,
-} from '../../redux/cart/cart.actions';
+import { clearItemFromCart } from '../../redux/cart/cart.actions';
 
 import {
     AdoptionItemContainer,
     ImageContainer,
     TextContainer,
-    QuantityContainer,
     RemoveButtonContainer,
 } from './adoption-item.styles';
 
-const AdoptionItem = ({ cartItem, clearItem, addItem, removeItem }) => {
-    const { name, imageUrl, quantity } = cartItem;
+const AdoptionItem = ({ cartItem, clearItem }) => {
+    const { name, imageUrl } = cartItem;
     return (
         <AdoptionItemContainer>
             <ImageContainer>
-                <img src={imageUrl} alt='item' />
+                <img src={imageUrl} alt={name} />
             </ImageContainer>
             <TextContainer>{name}</TextContainer>
-            <QuantityContainer>
-                <div onClick={() => removeItem(cartItem)}>&#10094;</div>
-                <span>{quantity}</span>
-                <div onClick={() => addItem(cartItem)}>&#10095;</div>
-            </QuantityContainer>
+            <TextContainer>{name}</TextContainer>
             <RemoveButtonContainer onClick={() => clearItem(cartItem)}>
                 &#10005;
             </RemoveButtonContainer>
@@ -37,8 +28,6 @@ const AdoptionItem = ({ cartItem, clearItem, addItem, removeItem }) => {
 
 const mapDispatchToProps = (dispatch) => ({
     clearItem: (item) => dispatch(clearItemFromCart(item)),
-    addItem: (item) => dispatch(addItem(item)),
-    removeItem: (item) => dispatch(removeItem(item)),
 });
 
 export default connect(null, mapDispatchToProps)(AdoptionItem);

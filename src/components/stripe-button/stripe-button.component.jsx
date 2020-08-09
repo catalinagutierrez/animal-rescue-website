@@ -1,5 +1,6 @@
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
+import logo from '../../assets/paw.svg';
 
 import CustomButton from '../custom-button/custom-button.component';
 
@@ -19,7 +20,7 @@ const StripeCheckoutButton = ({ amount }) => {
             name='CAT Animal Rescue Ltd.'
             billingAddress
             shippingAddress
-            image='http://svgshare.com/i/CUz.svg'
+            image={logo}
             description={`You will donate $${amount}`}
             amount={amountForStipe}
             panelLabel='Donation'
