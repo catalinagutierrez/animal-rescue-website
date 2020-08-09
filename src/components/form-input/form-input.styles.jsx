@@ -15,6 +15,10 @@ export const GroupContainer = styled.div`
     input[type='password'] {
         letter-spacing: 0.3em;
     }
+
+    input[type='checkbox'] {
+        animation: none !important;
+    }
 `;
 
 export const FormInputContainer = styled.input`
