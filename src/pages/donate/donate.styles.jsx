@@ -9,7 +9,7 @@ export const DonatePageContainer = styled.div`
     margin: 0;
 
     @media screen and (max-width: 800px) {
-        width: 90%;
+        height: 120vw;
     }
 `;
 
@@ -21,6 +21,11 @@ export const InformationContainer = styled.div`
     align-items: center;
     overflow: hidden;
     justify-content: center;
+
+    @media screen and (max-width: 800px) {
+        max-height: 100%;
+        height: 100%;
+    }
 `;
 
 export const BackgroundImageContainer = styled.div`
@@ -30,6 +35,11 @@ export const BackgroundImageContainer = styled.div`
     background-size: cover;
     background-position: center;
     background-image: ${({ imageUrl }) => `url(${imageUrl})`};
+
+    @media screen and (max-width: 800px) {
+        height: 100%;
+        background-image: url('https://i.pinimg.com/736x/bf/7a/e5/bf7ae5d9212c23f5eb52f97a0a8f0acf.jpg');
+    }
 `;
 
 export const ContentContainer = styled.div`
@@ -50,6 +60,11 @@ export const ContentContainer = styled.div`
     span {
         font-size: 24px;
         padding: 25px;
+    }
+
+    @media screen and (max-width: 800px) {
+        max-width: 90%;
+        top: 100px;
     }
 `;
 

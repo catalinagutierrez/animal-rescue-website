@@ -17,6 +17,7 @@ class Application extends React.Component {
             fullName: '',
             address: '',
             zipCode: '',
+            email: '',
             currentPets: 'none',
             previousPets: 'none',
             hasChildren: 'no',
@@ -36,7 +37,7 @@ class Application extends React.Component {
     };
 
     render() {
-        const { fullName, address, zipCode } = this.state;
+        const { fullName, address, zipCode, email } = this.state;
 
         return (
             <ApplicationContainer>
@@ -68,6 +69,14 @@ class Application extends React.Component {
                         value={zipCode}
                         onChange={this.handleChange}
                         label='Zip Code'
+                        required
+                    />
+                    <FormInput
+                        type='email'
+                        name='email'
+                        value={email}
+                        onChange={this.handleChange}
+                        label='Email'
                         required
                     />
                     <RadioButtonInput>
