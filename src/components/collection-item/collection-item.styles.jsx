@@ -20,6 +20,7 @@ export const CollectionItemContainer = styled.div`
     }
     @media screen and (max-width: 800px) {
         width: 40vw;
+        height: 58vw;
         &:hover {
             .image {
                 opacity: unset;
@@ -42,7 +43,7 @@ export const AddButton = styled(CustomButton)`
         opacity: 0.9;
         min-width: unset;
         padding: 0 10px;
-        top: 20vw;
+        top: 40vw;
     }
 `;
 
