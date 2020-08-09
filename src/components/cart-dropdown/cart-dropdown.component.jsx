@@ -24,7 +24,7 @@ const CartDropdown = ({ cartItems, history, dispatch }) => (
                 ))
             ) : (
                 <EmptyMessageContainer>
-                    Your cart is empty
+                    Adopt, don't shop!
                 </EmptyMessageContainer>
             )}
         </CartItemsContainer>

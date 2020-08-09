@@ -1,6 +1,8 @@
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 
+import CustomButton from '../custom-button/custom-button.component';
+
 const StripeCheckoutButton = ({ amount }) => {
     const amountForStipe = amount * 100;
     const publishableKey =
@@ -23,7 +25,9 @@ const StripeCheckoutButton = ({ amount }) => {
             panelLabel='Donation'
             token={onToken}
             stripeKey={publishableKey}
-        />
+        >
+            <CustomButton inverted>Donate Now</CustomButton>
+        </StripeCheckout>
     );
 };
 

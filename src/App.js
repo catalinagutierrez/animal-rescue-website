@@ -23,22 +23,20 @@ class App extends React.Component {
         //set the user reducer with the new user object
         const { setCurrentUser } = this.props;
 
-        this.unsubscripbeFromAuth = auth.onAuthStateChanged(
-            async (userAuth) => {
-                if (userAuth) {
-                    const userRef = await createUserProfileDocument(userAuth);
+        this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+            if (userAuth) {
+                const userRef = await createUserProfileDocument(userAuth);
 
-                    userRef.onSnapshot((snapShot) => {
-                        setCurrentUser({
-                            id: snapShot.id,
-                            ...snapShot.data(),
-                        });
+                userRef.onSnapshot((snapShot) => {
+                    setCurrentUser({
+                        id: snapShot.id,
+                        ...snapShot.data(),
                     });
-                } else {
-                    setCurrentUser(userAuth);
-                }
+                });
+            } else {
+                setCurrentUser(userAuth);
             }
-        );
+        });
     }
 
     componentWillUnmount() {

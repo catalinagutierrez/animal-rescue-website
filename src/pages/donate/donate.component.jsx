@@ -23,14 +23,14 @@ const DonatePage = () => (
                     Thank you for your interest in supporting us. We are a
                     non-profit, imaginary organization in service of animals who
                     need a home. Every dolar counts towards feeding and caring
-                    for one of our four-legged guests, and it helps us go out
-                    there to bring in more strays into our care.
+                    for our four-legged guests, and it helps us go out there to
+                    bring more strays into our care.
                 </span>
                 <DonationForm />
                 <WarningContainer>
                     *Please use the following test credit card for payments*
                     <br />
-                    4242 4242 4242 4242 - Exp: 01/20 - CVV: 123
+                    4242 4242 4242 4242 - Exp: 01/21 - CVV: 123
                 </WarningContainer>
             </ContentContainer>
         </InformationContainer>

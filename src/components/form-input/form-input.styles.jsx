@@ -29,12 +29,15 @@ export const FormInputContainer = styled.input`
     border-radius: 0;
     border-bottom: 1px solid ${subColor};
     margin: 25px 0;
+
     &:focus {
         outline: none;
     }
+
     &:focus ~ label {
         ${shrinkLabelStyles}
     }
+    text-align: center;
 `;
 
 export const FormInputLabel = styled.label`
