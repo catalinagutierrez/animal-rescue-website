@@ -8,7 +8,7 @@ import {
     AddButton,
     BackgroundImage,
     NameContainer,
-    AgeContainer,
+    //AgeContainer,
 } from './collection-item.styles';
 
 const CollectionItem = ({ item, addItem }) => {
@@ -19,7 +19,7 @@ const CollectionItem = ({ item, addItem }) => {
             <BackgroundImage className='image' imageUrl={imageUrl} />
             <CollectionFooterContainer>
                 <NameContainer>{name}</NameContainer>
-                <AgeContainer>4 months</AgeContainer>
+                {/* <AgeContainer>4 months</AgeContainer> */}
             </CollectionFooterContainer>
             <AddButton onClick={() => addItem(item)} inverted>
                 Adopt me!

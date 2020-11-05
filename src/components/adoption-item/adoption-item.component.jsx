@@ -18,7 +18,6 @@ const AdoptionItem = ({ cartItem, clearItem }) => {
                 <img src={imageUrl} alt={name} />
             </ImageContainer>
             <TextContainer>{name}</TextContainer>
-            <TextContainer>{name}</TextContainer>
             <RemoveButtonContainer onClick={() => clearItem(cartItem)}>
                 &#10005;
             </RemoveButtonContainer>

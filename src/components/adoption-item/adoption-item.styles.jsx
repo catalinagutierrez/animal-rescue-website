@@ -13,6 +13,7 @@ export const AdoptionItemContainer = styled.div`
 export const ImageContainer = styled.div`
     width: 30%;
     padding-right: 15px;
+    margin-right: 15%;
     img {
         width: 100%;
         height: 100%;
@@ -20,7 +21,7 @@ export const ImageContainer = styled.div`
 `;
 
 export const TextContainer = styled.span`
-    width: 30%;
+    width: 45%;
 `;
 
 export const RemoveButtonContainer = styled.div`

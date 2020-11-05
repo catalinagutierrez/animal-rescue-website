@@ -16,8 +16,8 @@ import {
 } from './adoption.styles';
 
 class AdoptionPage extends React.Component {
-    constructor({ cartItems, currentUser }) {
-        super({ cartItems, currentUser });
+    constructor(props) {
+        super(props);
 
         this.state = {
             showForm: false,
@@ -36,9 +36,6 @@ class AdoptionPage extends React.Component {
                         <span>Name</span>
                     </HeaderBlockContainer>
                     <HeaderBlockContainer>
-                        <span>Days</span>
-                    </HeaderBlockContainer>
-                    <HeaderBlockContainer>
                         <span>Remove</span>
                     </HeaderBlockContainer>
                 </AdoptionHeaderContainer>
@@ -46,18 +43,22 @@ class AdoptionPage extends React.Component {
                     <AdoptionItem key={cartItem.id} cartItem={cartItem} />
                 ))}
                 {this.props.cartItems.length ? (
-                    this.state.showApplyButton && (
-                        <CustomButton
-                            onClick={() =>
-                                this.setState({
-                                    showForm: true,
-                                    showApplyButton: false,
-                                })
-                            }
-                        >
-                            {' '}
-                            Apply
-                        </CustomButton>
+                    this.props.currentUser ? (
+                        this.state.showApplyButton && (
+                            <CustomButton
+                                onClick={() =>
+                                    this.setState({
+                                        showForm: true,
+                                        showApplyButton: false,
+                                    })
+                                }
+                            >
+                                {' '}
+                                Apply
+                            </CustomButton>
+                        )
+                    ) : (
+                        <p>Please sign in to access the application form.</p>
                     )
                 ) : (
                     <p>

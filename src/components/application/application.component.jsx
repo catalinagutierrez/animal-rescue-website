@@ -37,7 +37,7 @@ class Application extends React.Component {
     };
 
     render() {
-        const { fullName, address, zipCode, email } = this.state;
+        const { fullName, address, zipCode } = this.state;
 
         return (
             <ApplicationContainer>

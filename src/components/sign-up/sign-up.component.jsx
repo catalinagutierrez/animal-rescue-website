@@ -24,7 +24,7 @@ class SignUp extends React.Component {
         const { displayName, email, password, confirmPassword } = this.state;
 
         if (password !== confirmPassword) {
-            alert("Passwords don't match");
+            alert("Passwords don't match.");
             return;
         }
 
@@ -43,6 +43,7 @@ class SignUp extends React.Component {
             });
         } catch (error) {
             console.log(error);
+            alert(error.message);
         }
     };
 
