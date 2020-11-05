@@ -43,8 +43,8 @@ class Application extends React.Component {
             <ApplicationContainer>
                 <ApplicationTitle>Application details</ApplicationTitle>
                 <span>
-                    You will receive a decision and next steps via email within
-                    the next business day.
+                    You will receive a decision and next steps to your account
+                    email within the next business day.
                 </span>
                 <form className='application-form' onSubmit={this.handleSubmit}>
                     <FormInput
@@ -71,14 +71,14 @@ class Application extends React.Component {
                         label='Zip Code'
                         required
                     />
-                    <FormInput
+                    {/* <FormInput
                         type='email'
                         name='email'
                         value={email}
                         onChange={this.handleChange}
                         label='Email'
                         required
-                    />
+                    /> */}
                     <RadioButtonInput>
                         <label>
                             Do you currently have other pets in your household?{' '}

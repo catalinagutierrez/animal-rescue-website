@@ -1,0 +1,41 @@
+[debug] [2020-08-13T13:01:48.397Z] ----------------------------------------------------------------------
+[debug] [2020-08-13T13:01:48.399Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\cguti\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-08-13T13:01:48.399Z] CLI Version:   8.7.0
+[debug] [2020-08-13T13:01:48.399Z] Platform:      win32
+[debug] [2020-08-13T13:01:48.399Z] Node Version:  v12.18.3
+[debug] [2020-08-13T13:01:48.400Z] Time:          Thu Aug 13 2020 08:01:48 GMT-0500 (Colombia Standard Time)
+[debug] [2020-08-13T13:01:48.400Z] ----------------------------------------------------------------------
+[debug] [2020-08-13T13:01:48.400Z] 
+[debug] [2020-08-13T13:01:48.406Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-08-13T13:01:48.406Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\cguti\Documents\Dev-Projects\cat-animal-rescue
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2020-08-13T13:01:54.327Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=100  
+ 
+[debug] [2020-08-13T13:01:54.780Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 13 Aug 2020 13:01:54 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  Using project cat-animal-rescue-db (cat-animal-rescue-db) 
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2020-08-13T13:01:59.048Z] >>> HTTP REQUEST GET https://cat-animal-rescue-db.firebaseio.com/.settings/rules.json  
+ 
+[debug] [2020-08-13T13:01:59.558Z] <<< HTTP RESPONSE 200 {"server":"nginx","date":"Thu, 13 Aug 2020 13:01:59 GMT","content-type":"application/json; charset=utf-8","content-length":"161","connection":"keep-alive","access-control-allow-origin":"*","cache-control":"no-cache","strict-transport-security":"max-age=31556926; includeSubDomains; preload"}
