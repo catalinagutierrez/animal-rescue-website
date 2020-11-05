@@ -15,19 +15,6 @@ const config = {
 
 firebase.initializeApp(config);
 
-//we create the firestore data from our local data
-export const addCollectionAndItems = async (collectionKey, objectsToAdd) => {
-    const collectionRef = firestore.collection(collectionKey);
-
-    const batch = firestore.batch();
-    objectsToAdd.forEach((obj) => {
-        const newDocRef = collectionRef.doc();
-        batch.set(newDocRef, obj);
-    });
-
-    return await batch.commit();
-};
-
 export const convertCollectionsSnapshotToMap = (collections) => {
     const transformedCollection = collections.docs.map((doc) => {
         const { title, items } = doc.data();
