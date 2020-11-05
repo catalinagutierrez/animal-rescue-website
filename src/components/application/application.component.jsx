@@ -17,17 +17,70 @@ class Application extends React.Component {
             fullName: '',
             address: '',
             zipCode: '',
-            //email: '',
             currentPets: 'none',
             previousPets: 'none',
             hasChildren: 'no',
+            errors: {},
         };
     }
 
-    handleSubmit = async () => {
-        alert(
-            'We have receieved your application and will get back to you soon. Thank you!'
-        );
+    validate() {
+        const { fullName, address, zipCode } = this.state;
+        let errors = {};
+        let isValid = true;
+
+        if (!fullName) {
+            isValid = false;
+            errors['fullName'] = 'Please enter your full name.';
+        }
+
+        if (typeof fullName !== 'undefined') {
+            if (fullName.length > 50) {
+                isValid = false;
+                errors['fullName'] = 'Name cannot exceed 50 characters.';
+            }
+        }
+
+        if (!address) {
+            isValid = false;
+            errors['address'] = 'Please enter your address.';
+        }
+
+        if (!zipCode) {
+            isValid = false;
+            errors['zipCode'] = 'Please enter your zip code.';
+        }
+
+        if (typeof zipCode !== 'undefined') {
+            if (zipCode.length > 5) {
+                isValid = false;
+                errors['zipCode'] = 'Please enter a valid zip code.';
+            }
+        }
+
+        this.setState({
+            errors: errors,
+        });
+
+        return isValid;
+    }
+
+    handleSubmit = async (event) => {
+        if (this.validate()) {
+            this.setState({
+                fullName: '',
+                address: '',
+                zipCode: '',
+                currentPets: 'none',
+                previousPets: 'none',
+                hasChildren: 'no',
+            });
+            alert(
+                'We have receieved your application and will get back to you soon. Thank you!'
+            );
+        } else {
+            event.preventDefault();
+        }
     };
 
     handleChange = (event) => {
@@ -53,7 +106,8 @@ class Application extends React.Component {
                         value={fullName}
                         onChange={this.handleChange}
                         label='Full Name'
-                        required
+                        error={this.state.errors.fullName}
+                        //required
                     />
                     <FormInput
                         type='text'
@@ -61,7 +115,8 @@ class Application extends React.Component {
                         value={address}
                         onChange={this.handleChange}
                         label='Address'
-                        required
+                        error={this.state.errors.address}
+                        //required
                     />
                     <FormInput
                         type='text'
@@ -69,16 +124,9 @@ class Application extends React.Component {
                         value={zipCode}
                         onChange={this.handleChange}
                         label='Zip Code'
-                        required
+                        error={this.state.errors.zipCode}
+                        //required
                     />
-                    {/* <FormInput
-                        type='email'
-                        name='email'
-                        value={email}
-                        onChange={this.handleChange}
-                        label='Email'
-                        required
-                    /> */}
                     <RadioButtonInput>
                         <label>
                             Do you currently have other pets in your household?{' '}

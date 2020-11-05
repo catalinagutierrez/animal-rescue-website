@@ -8,6 +8,7 @@ import {
     SignInContainer,
     SignInTitle,
     ButtonsBarContainer,
+    Warning,
 } from './sign-in.styles';
 
 class SignIn extends React.Component {
@@ -17,6 +18,7 @@ class SignIn extends React.Component {
         this.state = {
             email: '',
             password: '',
+            error: '',
         };
     }
 
@@ -29,6 +31,9 @@ class SignIn extends React.Component {
             await auth.signInWithEmailAndPassword(email, password);
             this.setState({ email: '', password: '' });
         } catch (error) {
+            this.setState({
+                error: 'Wrong username or password. Please try again.',
+            });
             console.log(error);
         }
     };
@@ -52,7 +57,7 @@ class SignIn extends React.Component {
                         value={this.state.email}
                         handleChange={this.handleChange}
                         label='email'
-                        required
+                        //required
                     />
                     <FormInput
                         name='password'
@@ -60,8 +65,9 @@ class SignIn extends React.Component {
                         value={this.state.password}
                         handleChange={this.handleChange}
                         label='password'
-                        required
+                        //required
                     />
+                    <Warning>{this.state.error}</Warning>
                     <ButtonsBarContainer>
                         <CustomButton type='submit' value='Submit Form'>
                             {' '}

@@ -57,3 +57,9 @@ export const FormInputLabel = styled.label`
         ${shrinkLabelStyles}
     }
 `;
+
+export const Warning = styled.div`
+    padding: 0;
+    margin: 0;
+    color: red;
+`;

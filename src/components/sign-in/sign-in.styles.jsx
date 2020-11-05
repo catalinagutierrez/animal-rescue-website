@@ -14,3 +14,9 @@ export const ButtonsBarContainer = styled.div`
     display: flex;
     justify-content: space-between;
 `;
+
+export const Warning = styled.div`
+    padding-bottom: 20px;
+    margin: 0;
+    color: red;
+`;
