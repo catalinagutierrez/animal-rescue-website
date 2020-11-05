@@ -17,7 +17,7 @@ class Application extends React.Component {
             fullName: '',
             address: '',
             zipCode: '',
-            email: '',
+            //email: '',
             currentPets: 'none',
             previousPets: 'none',
             hasChildren: 'no',
