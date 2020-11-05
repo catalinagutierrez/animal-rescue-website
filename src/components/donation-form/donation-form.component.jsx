@@ -10,7 +10,7 @@ class DonationForm extends React.Component {
         super();
 
         this.state = {
-            amount: '',
+            amount: 1,
         };
     }
 
@@ -25,18 +25,16 @@ class DonationForm extends React.Component {
 
         return (
             <DonationFormContainer>
-                <form className='donation-form'>
-                    <FormInput
-                        type='number'
-                        name='amount'
-                        value={amount}
-                        onChange={this.handleChange}
-                        label='Amount (USD)'
-                        min='1'
-                        step='1'
-                        required
-                    />
-                </form>
+                <FormInput
+                    type='number'
+                    name='amount'
+                    value={amount}
+                    onChange={this.handleChange}
+                    label='Amount (USD)'
+                    min='1'
+                    step='1'
+                    required
+                />
                 <StripeCheckoutButton amount={amount} />
             </DonationFormContainer>
         );
