@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 
 import FormInput from '../form-input/form-input.component';
@@ -11,81 +11,73 @@ import {
     Warning,
 } from './sign-in.styles';
 
-class SignIn extends React.Component {
-    constructor(props) {
-        super(props);
+const SignIn = () => {
+    const [error, setError] = useState('');
+    const [userCredentials, setCredentials] = useState({
+        email: '',
+        password: '',
+    });
 
-        this.state = {
-            email: '',
-            password: '',
-            error: '',
-        };
-    }
+    const { email, password } = userCredentials;
 
-    handleSubmit = async (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-
-        const { email, password } = this.state;
 
         try {
             await auth.signInWithEmailAndPassword(email, password);
-            this.setState({ email: '', password: '' });
+            setCredentials({ email: '', password: '' });
         } catch (error) {
-            this.setState({
-                error: 'Wrong username or password. Please try again.',
-            });
+            setError('Wrong username or password. Please try again.');
             console.log(error);
         }
     };
 
-    handleChange = (event) => {
+    const handleChange = (event) => {
         const { value, name } = event.target;
 
-        this.setState({ [name]: value });
+        setCredentials({ ...userCredentials, [name]: value });
     };
 
-    render() {
-        return (
-            <SignInContainer>
-                <SignInTitle>I already have an account</SignInTitle>
-                <span>Sign in with your email and password</span>
+    return (
+        <SignInContainer>
+            <SignInTitle>I already have an account</SignInTitle>
+            <span>Sign in with your email and password</span>
 
-                <form onSubmit={this.handleSubmit}>
-                    <FormInput
-                        name='email'
-                        type='email'
-                        value={this.state.email}
-                        handleChange={this.handleChange}
-                        label='email'
-                        //required
-                    />
-                    <FormInput
-                        name='password'
-                        type='password'
-                        value={this.state.password}
-                        handleChange={this.handleChange}
-                        label='password'
-                        //required
-                    />
-                    <Warning>{this.state.error}</Warning>
-                    <ButtonsBarContainer>
-                        <CustomButton type='submit' value='Submit Form'>
-                            {' '}
-                            Sign in{' '}
-                        </CustomButton>
-                        <CustomButton
-                            type='button'
-                            onClick={signInWithGoogle}
-                            isGoogleSignIn
-                        >
-                            {' '}
-                            Sign in with Google{' '}
-                        </CustomButton>
-                    </ButtonsBarContainer>
-                </form>
-            </SignInContainer>
-        );
-    }
-}
+            <form onSubmit={handleSubmit}>
+                <FormInput
+                    name='email'
+                    type='email'
+                    value={email}
+                    handleChange={handleChange}
+                    label='email'
+                    //required
+                />
+                <FormInput
+                    name='password'
+                    type='password'
+                    value={password}
+                    handleChange={handleChange}
+                    label='password'
+                    //required
+                />
+                <Warning>{error}</Warning>
+                <ButtonsBarContainer>
+                    <CustomButton type='submit' value='Submit Form'>
+                        {' '}
+                        Sign in{' '}
+                    </CustomButton>
+                    <CustomButton
+                        type='button'
+                        onClick={signInWithGoogle}
+                        isGoogleSignIn
+                    >
+                        {' '}
+                        Sign in with Google{' '}
+                    </CustomButton>
+                </ButtonsBarContainer>
+            </form>
+        </SignInContainer>
+    );
+};
 
 export default SignIn;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
@@ -6,21 +6,18 @@ import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 
 import { SignUpContainer, SignUpTitle } from './sign-up.styles';
 
-class SignUp extends React.Component {
-    constructor() {
-        super();
+const SignUp = () => {
+    const [error, setError] = useState({});
+    const [userCredentials, setCredentials] = useState({
+        displayName: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+    });
 
-        this.state = {
-            displayName: '',
-            email: '',
-            password: '',
-            confirmPassword: '',
-            errors: {},
-        };
-    }
+    const { displayName, email, password, confirmPassword } = userCredentials;
 
-    validate() {
-        const { displayName, email, password, confirmPassword } = this.state;
+    const validate = () => {
         let errors = {};
         let isValid = true;
 
@@ -73,19 +70,17 @@ class SignUp extends React.Component {
             errors['password'] = "Passwords don't match.";
         }
 
-        this.setState({
-            errors: errors,
-        });
+        setError(errors);
+
+        console.log(error);
 
         return isValid;
-    }
+    };
 
-    handleSubmit = async (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
-        if (this.validate()) {
-            const { displayName, email, password } = this.state;
-
+        if (validate()) {
             try {
                 const { user } = await auth.createUserWithEmailAndPassword(
                     email,
@@ -93,7 +88,7 @@ class SignUp extends React.Component {
                 );
 
                 await createUserProfileDocument(user, { displayName });
-                this.setState({
+                setCredentials({
                     displayName: '',
                     email: '',
                     password: '',
@@ -106,57 +101,53 @@ class SignUp extends React.Component {
         }
     };
 
-    handleChange = (event) => {
+    const handleChange = (event) => {
         const { name, value } = event.target;
 
-        this.setState({ [name]: value });
+        setCredentials({ ...userCredentials, [name]: value });
     };
 
-    render() {
-        const { displayName, email, password, confirmPassword } = this.state;
-
-        return (
-            <SignUpContainer>
-                <SignUpTitle>I do not have a account</SignUpTitle>
-                <span>Sign up with your email and password</span>
-                <form className='sign-up-form' onSubmit={this.handleSubmit}>
-                    <FormInput
-                        type='text'
-                        name='displayName'
-                        value={displayName}
-                        onChange={this.handleChange}
-                        label='Display Name'
-                        error={this.state.errors.displayName}
-                    />
-                    <FormInput
-                        type='text'
-                        name='email'
-                        value={email}
-                        onChange={this.handleChange}
-                        label='Email'
-                        error={this.state.errors.email}
-                    />
-                    <FormInput
-                        type='password'
-                        name='password'
-                        value={password}
-                        onChange={this.handleChange}
-                        label='Password'
-                        error={this.state.errors.password}
-                    />
-                    <FormInput
-                        type='password'
-                        name='confirmPassword'
-                        value={confirmPassword}
-                        onChange={this.handleChange}
-                        label='Confirm Password'
-                        error={this.state.errors.confirmPassword}
-                    />
-                    <CustomButton type='submit'>SIGN UP</CustomButton>
-                </form>
-            </SignUpContainer>
-        );
-    }
-}
+    return (
+        <SignUpContainer>
+            <SignUpTitle>I do not have a account</SignUpTitle>
+            <span>Sign up with your email and password</span>
+            <form className='sign-up-form' onSubmit={handleSubmit}>
+                <FormInput
+                    type='text'
+                    name='displayName'
+                    value={displayName}
+                    onChange={handleChange}
+                    label='Display Name'
+                    error={error.displayName}
+                />
+                <FormInput
+                    type='text'
+                    name='email'
+                    value={email}
+                    onChange={handleChange}
+                    label='Email'
+                    error={error.email}
+                />
+                <FormInput
+                    type='password'
+                    name='password'
+                    value={password}
+                    onChange={handleChange}
+                    label='Password'
+                    error={error.password}
+                />
+                <FormInput
+                    type='password'
+                    name='confirmPassword'
+                    value={confirmPassword}
+                    onChange={handleChange}
+                    label='Confirm Password'
+                    error={error.confirmPassword}
+                />
+                <CustomButton type='submit'>SIGN UP</CustomButton>
+            </form>
+        </SignUpContainer>
+    );
+};
 
 export default SignUp;
