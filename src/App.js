@@ -17,7 +17,7 @@ import { selectCurrentUser } from './redux/user/user.selectors';
 import { GlobalStyle } from './global.styles';
 
 class App extends React.Component {
-    unsubscripbeFromAuth = null;
+    unsubscribeFromAuth = null;
 
     componentDidMount() {
         //set the user reducer with the new user object
