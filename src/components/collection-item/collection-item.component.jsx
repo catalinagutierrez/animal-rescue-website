@@ -1,35 +1,34 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { addItem } from '../../redux/cart/cart.actions';
+import React from "react";
+import { connect } from "react-redux";
+import { addItem } from "../../redux/cart/cart.actions";
 
-import {
-    CollectionItemContainer,
-    CollectionFooterContainer,
-    AddButton,
-    BackgroundImage,
-    NameContainer,
-    //AgeContainer,
-} from './collection-item.styles';
+import CustomButton from "../custom-button/custom-button.component";
+
+import "./collection-item.styles.css";
 
 const CollectionItem = ({ item, addItem }) => {
-    const { name, imageUrl } = item;
+  const { name, imageUrl } = item;
 
-    return (
-        <CollectionItemContainer>
-            <BackgroundImage className='image' imageUrl={imageUrl} />
-            <CollectionFooterContainer>
-                <NameContainer>{name}</NameContainer>
-                {/* <AgeContainer>4 months</AgeContainer> */}
-            </CollectionFooterContainer>
-            <AddButton onClick={() => addItem(item)} inverted>
-                Adopt me!
-            </AddButton>
-        </CollectionItemContainer>
-    );
+  return (
+    <div className="wd-collection-item">
+      <div
+        className="wd-image"
+        style={{
+          backgroundImage: `url(${imageUrl})`,
+        }}
+      />
+      <div className="wd-collection-footer">
+        <span className="wd-name">{name}</span>
+      </div>
+      <CustomButton onClick={() => addItem(item)} inverted>
+        Adopt me!
+      </CustomButton>
+    </div>
+  );
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    addItem: (item) => dispatch(addItem(item)),
+  addItem: (item) => dispatch(addItem(item)),
 });
 
 export default connect(null, mapDispatchToProps)(CollectionItem);

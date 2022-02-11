@@ -1,32 +1,27 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
-import { clearItemFromCart } from '../../redux/cart/cart.actions';
+import { clearItemFromCart } from "../../redux/cart/cart.actions";
 
-import {
-    AdoptionItemContainer,
-    ImageContainer,
-    TextContainer,
-    RemoveButtonContainer,
-} from './adoption-item.styles';
+import "./adoption-item.styles.css";
 
 const AdoptionItem = ({ cartItem, clearItem }) => {
-    const { name, imageUrl } = cartItem;
-    return (
-        <AdoptionItemContainer>
-            <ImageContainer>
-                <img src={imageUrl} alt={name} />
-            </ImageContainer>
-            <TextContainer>{name}</TextContainer>
-            <RemoveButtonContainer onClick={() => clearItem(cartItem)}>
-                &#10005;
-            </RemoveButtonContainer>
-        </AdoptionItemContainer>
-    );
+  const { name, imageUrl } = cartItem;
+  return (
+    <div className="wd-adoption-item">
+      <div className="wd-image">
+        <img src={imageUrl} alt={name} />
+      </div>
+      <span className="wd-text">{name}</span>
+      <div className="wd-remove-button" onClick={() => clearItem(cartItem)}>
+        &#10005;
+      </div>
+    </div>
+  );
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    clearItem: (item) => dispatch(clearItemFromCart(item)),
+  clearItem: (item) => dispatch(clearItemFromCart(item)),
 });
 
 export default connect(null, mapDispatchToProps)(AdoptionItem);

@@ -1,46 +1,39 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-import { withRouter } from 'react-router-dom';
+import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { withRouter } from "react-router-dom";
 
-// import CustomButton from '../custom-button/custom-button.component';
-import CartItem from '../cart-item/cart-item.component';
-import { selectCartItems } from '../../redux/cart/cart.selectors';
-import { toggleCartHidden } from '../../redux/cart/cart.actions';
+import CustomButton from "../custom-button/custom-button.component";
+import CartItem from "../cart-item/cart-item.component";
+import { selectCartItems } from "../../redux/cart/cart.selectors";
+import { toggleCartHidden } from "../../redux/cart/cart.actions";
 
-import {
-    CartDropdownContainer,
-    CartDropdownButton,
-    EmptyMessageContainer,
-    CartItemsContainer,
-} from './cart-dropdown.styles';
+import "./cart-dropdown.styles.css";
 
 const CartDropdown = ({ cartItems, history, dispatch }) => (
-    <CartDropdownContainer>
-        <CartItemsContainer>
-            {cartItems.length ? (
-                cartItems.map((cartItem) => (
-                    <CartItem key={cartItem.id} item={cartItem} />
-                ))
-            ) : (
-                <EmptyMessageContainer>
-                    Adopt, don't shop!
-                </EmptyMessageContainer>
-            )}
-        </CartItemsContainer>
-        <CartDropdownButton
-            onClick={() => {
-                history.push('/adoption');
-                dispatch(toggleCartHidden());
-            }}
-        >
-            APPLY FOR ADOPTION
-        </CartDropdownButton>
-    </CartDropdownContainer>
+  <div className="wd-cart-dropdown">
+    <div className="wd-cart-items">
+      {cartItems.length ? (
+        cartItems.map((cartItem) => (
+          <CartItem key={cartItem.id} item={cartItem} />
+        ))
+      ) : (
+        <span className="wd-empty-message">Adopt, don't shop!</span>
+      )}
+    </div>
+    <CustomButton
+      onClick={() => {
+        history.push("/checkout");
+        dispatch(toggleCartHidden());
+      }}
+    >
+      APPLY FOR ADOPTION
+    </CustomButton>
+  </div>
 );
 
 const mapStateToProps = createStructuredSelector({
-    cartItems: selectCartItems,
+  cartItems: selectCartItems,
 });
 
 export default withRouter(connect(mapStateToProps)(CartDropdown));
